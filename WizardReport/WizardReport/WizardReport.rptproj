@@ -50,6 +50,7 @@
     <Reports>@(Report)</Reports>
   </PropertyGroup>
   <ItemGroup>
+    <Report Include="Report1.rdl" />
     <Report Include="TotalNumberofGraduatesperYear.rdl" />
     <Report Include="TotalNumberofStudentsEnrolledperYear.rdl" />
   </ItemGroup>
