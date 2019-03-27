@@ -46,7 +46,7 @@ ORDER BY 'YEAR'</CommandText>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Report1</Value>
+                    <Value>Total Number of Graduates per Year</Value>
                     <Style>
                       <FontFamily>Segoe UI Light</FontFamily>
                       <FontSize>24pt</FontSize>
@@ -307,7 +307,6 @@ ORDER BY 'YEAR'</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
