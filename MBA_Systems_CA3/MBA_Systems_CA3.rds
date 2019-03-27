@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="MBA_Systems_CA3">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=192.168.110.137;Initial Catalog=MBASystemCA3</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>4b20c5cf-4c9f-480a-b9aa-13bc089fc5dd</DataSourceID>
+</RptDataSource>
