@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "MBAInformationQueries", "MBAInformationQueries\MBAInformationQueries.rptproj", "{40E8C7C2-24F9-4880-AD4C-380EF48CA1CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40E8C7C2-24F9-4880-AD4C-380EF48CA1CB}.Debug|Default.ActiveCfg = Debug
+		{40E8C7C2-24F9-4880-AD4C-380EF48CA1CB}.Debug|Default.Build.0 = Debug
+		{40E8C7C2-24F9-4880-AD4C-380EF48CA1CB}.Debug|Default.Deploy.0 = Debug
+		{40E8C7C2-24F9-4880-AD4C-380EF48CA1CB}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{40E8C7C2-24F9-4880-AD4C-380EF48CA1CB}.DebugLocal|Default.Build.0 = DebugLocal
+		{40E8C7C2-24F9-4880-AD4C-380EF48CA1CB}.Release|Default.ActiveCfg = Release
+		{40E8C7C2-24F9-4880-AD4C-380EF48CA1CB}.Release|Default.Build.0 = Release
+		{40E8C7C2-24F9-4880-AD4C-380EF48CA1CB}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCDDDC16-D313-4B8F-9BFA-0EDD605CD32D}
+	EndGlobalSection
+EndGlobal
