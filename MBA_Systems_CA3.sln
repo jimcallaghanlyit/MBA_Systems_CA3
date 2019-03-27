@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "MBA_Systems_CA3", "MBA_Systems_CA3\MBA_Systems_CA3.rptproj", "{C7F305F8-6290-4A32-B5A0-EC25FE76AA09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7F305F8-6290-4A32-B5A0-EC25FE76AA09}.Debug|Default.ActiveCfg = Debug
+		{C7F305F8-6290-4A32-B5A0-EC25FE76AA09}.Debug|Default.Build.0 = Debug
+		{C7F305F8-6290-4A32-B5A0-EC25FE76AA09}.Debug|Default.Deploy.0 = Debug
+		{C7F305F8-6290-4A32-B5A0-EC25FE76AA09}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{C7F305F8-6290-4A32-B5A0-EC25FE76AA09}.DebugLocal|Default.Build.0 = DebugLocal
+		{C7F305F8-6290-4A32-B5A0-EC25FE76AA09}.Release|Default.ActiveCfg = Release
+		{C7F305F8-6290-4A32-B5A0-EC25FE76AA09}.Release|Default.Build.0 = Release
+		{C7F305F8-6290-4A32-B5A0-EC25FE76AA09}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2B09FD1-563F-432F-A437-338C3E3F607D}
+	EndGlobalSection
+EndGlobal
