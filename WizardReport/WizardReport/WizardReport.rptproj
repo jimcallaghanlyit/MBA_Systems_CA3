@@ -51,6 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Report Include="TotalNumberofGraduatesperYear.rdl" />
+    <Report Include="TotalNumberofStudentsEnrolledperYear.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
