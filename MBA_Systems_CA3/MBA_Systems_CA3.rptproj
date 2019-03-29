@@ -52,11 +52,12 @@
     <DataSource Include="MBA_Systems_CA3.rds" />
   </ItemGroup>
   <ItemGroup>
-    <Report Include="Avg_Student_Faculty_ratio.rdl" />
-    <Report Include="No_of_ICCSB_accredited_MBA_Programs.rdl" />
-    <Report Include="Total_No_of_Enrolled_per_Year.rdl" />
-    <Report Include="Total_No_of_Graduates_per_Year.rdl" />
-    <Report Include="Total_No_of_Graduates_top_managerial_position.rdl" />
+    <Report Include="MBA Information - Avg_GPA_MBA_Graduates_per_year_last_3_years.rdl" />
+    <Report Include="MBA Information - Avg_Student_Faculty_ratio.rdl" />
+    <Report Include="MBA Information - No_of_ICCSB_accredited_MBA_Programs.rdl" />
+    <Report Include="MBA Information - Total_No_of_Enrolled_per_Year.rdl" />
+    <Report Include="MBA Information - Total_No_of_Graduates_per_Year.rdl" />
+    <Report Include="MBA Information - Total_No_of_Graduates_top_managerial_position.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
