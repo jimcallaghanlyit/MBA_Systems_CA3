@@ -49,13 +49,11 @@
     <Reports>@(Report)</Reports>
   </PropertyGroup>
   <ItemGroup>
-    <DataSet Include="Years.rsd" />
-  </ItemGroup>
-  <ItemGroup>
     <DataSource Include="MBA_Systems_CA3.rds" />
   </ItemGroup>
   <ItemGroup>
-    <Report Include="Total Number of Students graduated from an MBA Program.rdl" />
+    <Report Include="Total_No_of_Enrolled_per_Year.rdl" />
+    <Report Include="Total_No_of_Graduates_per_Year.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
