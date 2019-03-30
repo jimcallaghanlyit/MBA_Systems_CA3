@@ -52,7 +52,9 @@
     <DataSource Include="MBA_Systems_CA3.rds" />
   </ItemGroup>
   <ItemGroup>
+    <Report Include="Foundational Courses Completed.rdl" />
     <Report Include="MBA Existing Modules Report.rdl" />
+    <Report Include="MBA ICCSB Accreditation.rdl" />
     <Report Include="MBA Management Positions.rdl" />
     <Report Include="MBAQualityIndicator-CEO_List.rdl" />
     <Report Include="MBAQualityIndicator-GPAHigherThan50.rdl" />

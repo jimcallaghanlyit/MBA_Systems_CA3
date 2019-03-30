@@ -79,6 +79,28 @@ WHERE [Module].CourseID=@CourseID</CommandText>
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="CourseID">
+      <Query>
+        <DataSourceName>MBASystemsCA3SharedDataSources</DataSourceName>
+        <CommandText>SELECT DISTINCT
+  [Module].CourseID
+FROM
+  [Module]</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="Module" ColumnName="CourseID" />
+            </SelectedColumns>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="CourseID">
+          <DataField>CourseID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -407,6 +429,13 @@ WHERE [Module].CourseID=@CourseID</CommandText>
     <ReportParameter Name="CourseID">
       <DataType>String</DataType>
       <Prompt>Course ID</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>CourseID</DataSetName>
+          <ValueField>CourseID</ValueField>
+          <LabelField>CourseID</LabelField>
+        </DataSetReference>
+      </ValidValues>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>

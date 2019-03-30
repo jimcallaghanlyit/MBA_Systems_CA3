@@ -6,40 +6,37 @@
     <DataSource Name="MBASystemsCA3SharedDataSource">
       <DataSourceReference>MBA_Systems_CA3</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>41ad3fb6-c9d9-49a5-b376-8d6d0c7a07ec</rd:DataSourceID>
+      <rd:DataSourceID>929b0cce-2ebb-46d8-ab23-f7c3791dcc9b</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="AverageGPA">
+    <DataSet Name="FoundationalCoursesCompleted">
       <Query>
         <DataSourceName>MBASystemsCA3SharedDataSource</DataSourceName>
-        <CommandText>SELECT DISTINCT
-  AVG(Alumni.AlumniGPA) AS AverageGPA
-  ,School.SchoolName
-  ,DATEPART(YEAR, MBAProgram.MBAGradYear) AS 'Year'
+        <CommandText>SELECT
+  DATEPART(YEAR,StudentGradDate) AS 'Year'
+  ,Student.StudentName
+ , COUNT(Student.StudentName)
 FROM
-  School
-  INNER JOIN Alumni
-    ON School.SchoolID = Alumni.SchoolID
-  INNER JOIN MBAProgram
-    ON School.SchoolID = MBAProgram.SchoolID
-WHERE DATEPART(YEAR, MBAProgram.MBAGradYear) &gt; '2016'
-GROUP BY School.SchoolName,DATEPART(YEAR, MBAProgram.MBAGradYear)
-ORDER BY DATEPART(YEAR, MBAProgram.MBAGradYear) DESC</CommandText>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+  Student
+GROUP BY DATEPART(YEAR,StudentGradDate)</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="Student" ColumnName="StudentGradDate" />
+              <ColumnExpression ColumnOwner="Student" ColumnName="StudentName" />
+            </SelectedColumns>
+          </QueryDefinition>
+        </rd:DesignerState>
       </Query>
       <Fields>
-        <Field Name="AverageGPA">
-          <DataField>AverageGPA</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="StudentGradDate">
+          <DataField>StudentGradDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="SchoolName">
-          <DataField>SchoolName</DataField>
+        <Field Name="StudentName">
+          <DataField>StudentName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Year">
-          <DataField>Year</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -48,11 +45,11 @@ ORDER BY DATEPART(YEAR, MBAProgram.MBAGradYear) DESC</CommandText>
     <ReportSection>
       <Body>
         <ReportItems>
-          <Tablix Name="Tablix2">
+          <Tablix Name="Tablix1">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>4.82833cm</Width>
+                  <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -67,21 +64,21 @@ ORDER BY DATEPART(YEAR, MBAProgram.MBAGradYear) DESC</CommandText>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox9">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>School</Value>
+                                  <Value>Student Name</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox9</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -97,23 +94,21 @@ ORDER BY DATEPART(YEAR, MBAProgram.MBAGradYear) DESC</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox15">
+                        <Textbox Name="Textbox3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>GPA Avg.</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                  </Style>
+                                  <Value>Student Grad Date</Value>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox15</rd:DefaultName>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -129,21 +124,21 @@ ORDER BY DATEPART(YEAR, MBAProgram.MBAGradYear) DESC</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox13">
+                        <Textbox Name="Textbox5">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Year</Value>
+                                  <Value />
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -164,21 +159,21 @@ ORDER BY DATEPART(YEAR, MBAProgram.MBAGradYear) DESC</CommandText>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="SchoolName">
+                        <Textbox Name="StudentName">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!SchoolName.Value</Value>
+                                  <Value>=Fields!StudentName.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>SchoolName</rd:DefaultName>
+                          <rd:DefaultName>StudentName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -194,57 +189,51 @@ ORDER BY DATEPART(YEAR, MBAProgram.MBAGradYear) DESC</CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="AverageGPA">
+                        <Textbox Name="StudentGradDate">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!AverageGPA.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>AverageGPA</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Year">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Year.Value</Value>
+                                  <Value>=Fields!StudentGradDate.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
+                              <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Year</rd:DefaultName>
+                          <rd:DefaultName>StudentGradDate</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -275,15 +264,15 @@ ORDER BY DATEPART(YEAR, MBAProgram.MBAGradYear) DESC</CommandText>
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Details1" />
+                  <Group Name="Details" />
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>AverageGPA</DataSetName>
-            <Top>4.2037cm</Top>
-            <Left>4.70641cm</Left>
+            <DataSetName>FoundationalCoursesCompleted</DataSetName>
+            <Top>1.74307cm</Top>
+            <Left>3.35703cm</Left>
             <Height>1.2cm</Height>
-            <Width>9.82833cm</Width>
+            <Width>7.5cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -291,7 +280,7 @@ ORDER BY DATEPART(YEAR, MBAProgram.MBAGradYear) DESC</CommandText>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>3.21077in</Height>
+        <Height>2in</Height>
         <Style />
       </Body>
       <Width>6.5in</Width>
@@ -314,5 +303,5 @@ ORDER BY DATEPART(YEAR, MBAProgram.MBAGradYear) DESC</CommandText>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>5d95c524-2bbe-4059-9d30-7cb6bb0edfed</rd:ReportID>
+  <rd:ReportID>5df2f884-7447-4cd5-b612-ccf6e1895eb3</rd:ReportID>
 </Report>
