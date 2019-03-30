@@ -1,39 +1,50 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="MBA_Systems_CA3">
+    <DataSource Name="MBASystemsCA3SharedDataSource">
       <DataSourceReference>MBA_Systems_CA3</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>5045a079-c62b-41a4-a463-695104bbfb2a</rd:DataSourceID>
+      <rd:DataSourceID>aa971acb-c368-423b-8909-28fbde208eac</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="GraduatesGPAHigherThan50">
       <Query>
-        <DataSourceName>MBA_Systems_CA3</DataSourceName>
+        <DataSourceName>MBASystemsCA3SharedDataSource</DataSourceName>
         <CommandText>SELECT
-  School.SchoolName
-  ,COUNT(Alumni.AlumniID) AS Count
-  , Alumni.AlumniCurrPosition
+  Alumni.AlumniName
+  ,Alumni.AlumniGPA
+  ,Alumni.AlumniCurrEmp
+  ,Alumni.AlumniCurrPosition
 FROM
-  School
-  INNER JOIN Alumni
-    ON School.SchoolID = Alumni.SchoolID
-WHERE Alumni.AlumniCurrPosition like '%Manager%' OR Alumni.AlumniCurrPosition like 'Chief%' OR Alumni.AlumniCurrPosition like 'VP%'
-GROUP BY School.SchoolName, Alumni.AlumniCurrPosition
-ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+  Alumni
+WHERE Alumni.AlumniGPA &gt; '50'
+ORDER BY Alumni.AlumniGPA DESC</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="Alumni" ColumnName="AlumniName" />
+              <ColumnExpression ColumnOwner="Alumni" ColumnName="AlumniGPA" />
+              <ColumnExpression ColumnOwner="Alumni" ColumnName="AlumniCurrEmp" />
+              <ColumnExpression ColumnOwner="Alumni" ColumnName="AlumniCurrPosition" />
+            </SelectedColumns>
+          </QueryDefinition>
+        </rd:DesignerState>
       </Query>
       <Fields>
-        <Field Name="SchoolName">
-          <DataField>SchoolName</DataField>
+        <Field Name="AlumniName">
+          <DataField>AlumniName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Count">
-          <DataField>Count</DataField>
+        <Field Name="AlumniGPA">
+          <DataField>AlumniGPA</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="AlumniCurrEmp">
+          <DataField>AlumniCurrEmp</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="AlumniCurrPosition">
           <DataField>AlumniCurrPosition</DataField>
@@ -52,10 +63,9 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                 <Source>Embedded</Source>
                 <Value>mba5121</Value>
                 <Sizing>FitProportional</Sizing>
-                <Top>0.10417in</Top>
-                <Left>2.67708in</Left>
-                <Height>0.71875in</Height>
-                <Width>0.75in</Width>
+                <Left>5.87375cm</Left>
+                <Height>2.18792cm</Height>
+                <Width>2.02917cm</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -81,10 +91,10 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>ReportName1</rd:DefaultName>
-                <Top>1.04167in</Top>
-                <Left>0.26042in</Left>
-                <Height>0.25in</Height>
-                <Width>5.27083in</Width>
+                <Top>3.36021cm</Top>
+                <Left>1.00542cm</Left>
+                <Height>0.6cm</Height>
+                <Width>11.31062cm</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
@@ -96,55 +106,50 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                   <PaddingBottom>2pt</PaddingBottom>
                 </Style>
               </Textbox>
-              <Tablix Name="table1">
+              <Tablix Name="Tablix1">
                 <TablixBody>
                   <TablixColumns>
                     <TablixColumn>
-                      <Width>1.75in</Width>
+                      <Width>3.05562cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.05208in</Width>
+                      <Width>1.60042cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>2.10417in</Width>
+                      <Width>3.42604cm</Width>
+                    </TablixColumn>
+                    <TablixColumn>
+                      <Width>5.94401cm</Width>
                     </TablixColumn>
                   </TablixColumns>
                   <TablixRows>
                     <TablixRow>
-                      <Height>0.22in</Height>
+                      <Height>0.6cm</Height>
                       <TablixCells>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="textbox2">
+                            <Textbox Name="Textbox1">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>School Name</Value>
+                                      <Value>Name</Value>
                                       <Style>
-                                        <FontFamily />
-                                        <FontSize>11pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
-                                        <Color>#666666</Color>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
+                                  <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>textbox2</rd:DefaultName>
+                              <rd:DefaultName>Textbox1</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
-                                </Border>
-                                <BottomBorder>
                                   <Style>Solid</Style>
-                                </BottomBorder>
-                                <FontFamily />
+                                </Border>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -155,37 +160,28 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="textbox4">
+                            <Textbox Name="Textbox3">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>Count</Value>
+                                      <Value>GPA</Value>
                                       <Style>
-                                        <FontFamily />
-                                        <FontSize>11pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
-                                        <Color>#666666</Color>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style>
-                                    <FontFamily />
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
+                                  <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>textbox4</rd:DefaultName>
+                              <rd:DefaultName>Textbox3</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
-                                </Border>
-                                <BottomBorder>
                                   <Style>Solid</Style>
-                                </BottomBorder>
-                                <FontFamily />
+                                </Border>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -196,7 +192,39 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                         </TablixCell>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="textbox5">
+                            <Textbox Name="Textbox5">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Company</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox5</rd:DefaultName>
+                              <Style>
+                                <Border>
+                                  <Color>LightGrey</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="Textbox7">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -205,27 +233,20 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                                     <TextRun>
                                       <Value>Role</Value>
                                       <Style>
-                                        <FontFamily />
-                                        <FontSize>11pt</FontSize>
+                                        <FontFamily>Arial</FontFamily>
                                         <FontWeight>Bold</FontWeight>
-                                        <Color>#666666</Color>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
+                                  <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>textbox5</rd:DefaultName>
+                              <rd:DefaultName>Textbox7</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
-                                </Border>
-                                <BottomBorder>
                                   <Style>Solid</Style>
-                                </BottomBorder>
-                                <FontFamily />
+                                </Border>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -237,57 +258,19 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                       </TablixCells>
                     </TablixRow>
                     <TablixRow>
-                      <Height>0.21in</Height>
+                      <Height>0.6cm</Height>
                       <TablixCells>
                         <TablixCell>
                           <CellContents>
-                            <Textbox Name="SchoolName">
+                            <Textbox Name="AlumniName">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!SchoolName.Value</Value>
-                                      <Style>
-                                        <FontFamily />
-                                        <FontWeight>Bold</FontWeight>
-                                        <Color>#333333</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>SchoolName</rd:DefaultName>
-                              <Style>
-                                <Border>
-                                  <Color>LightGrey</Color>
-                                </Border>
-                                <FontFamily />
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                          </CellContents>
-                        </TablixCell>
-                        <TablixCell>
-                          <CellContents>
-                            <Textbox Name="textbox6">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Sum(Fields!Count.Value)</Value>
-                                      <Style>
-                                        <FontFamily />
-                                        <FontWeight>Bold</FontWeight>
-                                        <Color>#333333</Color>
-                                      </Style>
+                                      <Value>=Fields!AlumniName.Value</Value>
+                                      <Style />
                                     </TextRun>
                                   </TextRuns>
                                   <Style>
@@ -295,123 +278,76 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <rd:DefaultName>textbox6</rd:DefaultName>
+                              <rd:DefaultName>AlumniName</rd:DefaultName>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
-                                </Border>
-                                <FontFamily />
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                          </CellContents>
-                        </TablixCell>
-                        <TablixCell>
-                          <CellContents>
-                            <Textbox Name="textbox7">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value />
-                                      <Style>
-                                        <FontFamily />
-                                        <Color>#333333</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>textbox7</rd:DefaultName>
-                              <Style>
-                                <Border>
-                                  <Color>LightGrey</Color>
-                                </Border>
-                                <FontFamily />
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                          </CellContents>
-                        </TablixCell>
-                      </TablixCells>
-                    </TablixRow>
-                    <TablixRow>
-                      <Height>0.21in</Height>
-                      <TablixCells>
-                        <TablixCell>
-                          <CellContents>
-                            <Textbox Name="textbox3">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value />
-                                      <Style>
-                                        <FontFamily />
-                                        <Color>#333333</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>textbox3</rd:DefaultName>
-                              <Style>
-                                <Border>
-                                  <Color>LightGrey</Color>
-                                </Border>
-                                <FontFamily />
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                          </CellContents>
-                        </TablixCell>
-                        <TablixCell>
-                          <CellContents>
-                            <Textbox Name="Count">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!Count.Value</Value>
-                                      <Style>
-                                        <FontFamily />
-                                        <Color>#333333</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Count</rd:DefaultName>
-                              <Style>
-                                <Border>
-                                  <Color>LightGrey</Color>
-                                </Border>
-                                <BottomBorder>
                                   <Style>Solid</Style>
-                                </BottomBorder>
-                                <FontFamily />
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="AlumniGPA">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!AlumniGPA.Value</Value>
+                                      <Style />
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>AlumniGPA</rd:DefaultName>
+                              <Style>
+                                <Border>
+                                  <Color>LightGrey</Color>
+                                  <Style>Solid</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </CellContents>
+                        </TablixCell>
+                        <TablixCell>
+                          <CellContents>
+                            <Textbox Name="AlumniCurrEmp">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!AlumniCurrEmp.Value</Value>
+                                      <Style />
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>AlumniCurrEmp</rd:DefaultName>
+                              <Style>
+                                <Border>
+                                  <Color>LightGrey</Color>
+                                  <Style>Solid</Style>
+                                </Border>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -431,8 +367,7 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                                     <TextRun>
                                       <Value>=Fields!AlumniCurrPosition.Value</Value>
                                       <Style>
-                                        <FontFamily />
-                                        <Color>#333333</Color>
+                                        <FontFamily>Arial</FontFamily>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -445,11 +380,8 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                               <Style>
                                 <Border>
                                   <Color>LightGrey</Color>
-                                </Border>
-                                <BottomBorder>
                                   <Style>Solid</Style>
-                                </BottomBorder>
-                                <FontFamily />
+                                </Border>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -467,60 +399,37 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                     <TablixMember />
                     <TablixMember />
                     <TablixMember />
+                    <TablixMember />
                   </TablixMembers>
                 </TablixColumnHierarchy>
                 <TablixRowHierarchy>
                   <TablixMembers>
                     <TablixMember>
                       <KeepWithGroup>After</KeepWithGroup>
-                      <RepeatOnNewPage>true</RepeatOnNewPage>
-                      <KeepTogether>true</KeepTogether>
                     </TablixMember>
                     <TablixMember>
-                      <Group Name="table1_SchoolName">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!SchoolName.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!SchoolName.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
-                      <TablixMembers>
-                        <TablixMember>
-                          <KeepWithGroup>After</KeepWithGroup>
-                          <KeepTogether>true</KeepTogether>
-                        </TablixMember>
-                        <TablixMember>
-                          <Group Name="table1_Details_Group">
-                            <DataElementName>Detail</DataElementName>
-                          </Group>
-                          <TablixMembers>
-                            <TablixMember />
-                          </TablixMembers>
-                          <DataElementName>Detail_Collection</DataElementName>
-                          <DataElementOutput>Output</DataElementOutput>
-                          <KeepTogether>true</KeepTogether>
-                        </TablixMember>
-                      </TablixMembers>
+                      <Group Name="Details" />
                     </TablixMember>
                   </TablixMembers>
                 </TablixRowHierarchy>
-                <DataSetName>DataSet1</DataSetName>
-                <Top>1.75417in</Top>
-                <Left>1.5875cm</Left>
-                <Height>0.64in</Height>
-                <Width>4.90625in</Width>
+                <DataSetName>GraduatesGPAHigherThan50</DataSetName>
+                <Top>5.38014cm</Top>
+                <Left>0.635cm</Left>
+                <Height>1.2cm</Height>
+                <Width>14.02609cm</Width>
                 <ZIndex>2</ZIndex>
-                <Style />
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
               </Tablix>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>0.155in</Top>
-            <Left>0.43625in</Left>
-            <Height>2.58167in</Height>
-            <Width>6.11458in</Width>
+            <Top>0.76412cm</Top>
+            <Left>1.42557cm</Left>
+            <Height>7.10931cm</Height>
+            <Width>15.34901cm</Width>
             <Style>
               <Border>
                 <Color>Blue</Color>
@@ -529,10 +438,10 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>2.92764in</Height>
+        <Height>3.30208in</Height>
         <Style />
       </Body>
-      <Width>6.97917in</Width>
+      <Width>6.60417in</Width>
       <Page>
         <PageHeader>
           <Height>2.54cm</Height>
@@ -556,10 +465,10 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ReportName</rd:DefaultName>
-              <Top>0.50917in</Top>
-              <Left>0.26958in</Left>
-              <Height>0.25in</Height>
-              <Width>6.28125in</Width>
+              <Top>0.84349cm</Top>
+              <Left>1.16099cm</Left>
+              <Height>0.6cm</Height>
+              <Width>13.77125cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -602,10 +511,10 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>0.46694in</Top>
-              <Left>2.12375in</Left>
-              <Height>0.25in</Height>
-              <Width>2.29167in</Width>
+              <Top>1.18745cm</Top>
+              <Left>4.23016cm</Left>
+              <Height>0.6cm</Height>
+              <Width>7.2625cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -623,10 +532,13 @@ ORDER BY COUNT(Alumni.AlumniID) ASC</CommandText>
             </Border>
           </Style>
         </PageFooter>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>2cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>
     </ReportSection>
@@ -705,8 +617,6 @@ G8QLJLwIY/6vUcb8LdH9svrExnasgvYA8coAj3cAQkX53PFLQYIcQSR/xPMbPO6KgAYO0qPTvdQh+AvJ
 uEG14FQG1x/iIZ5ivGBJDoDgwxUELZjBlyMe4ukDj7tCKHqQXiO0hRMDSmRT6WnBs3BcTcntmisyvLWpI1c/x7tG3/ZP0bf47fTIf1qkpTATnhU8MzGix/WHeIinCk+SAxDk3Mqp+EE8xEO8Uj/lIxKGVzFYCiPh7TbKbM+jJDiFkiKtgGg9TkWMPqAnCD/xqYoBRv7/0jf487T/H9zUyretg9RLro4DHWtEgj2iQWL23TEx0cG4XhAP8coEr7wnb+E2QSuv8ssRD/EQTwGe0WgMok7CveAogCpdZLy9H9x9U1nawZRMJ3J34TfLJu/iMhcs9pfp/79NiyV9Qv//NDgR4SbbZchocByr33AEMv7LEfXN/7/B/Rv3Gdtlh+NxGjA4LIoJ2PAd9PMb6Xcu5L7bYh8EfYE+Qd+A2KGv0GecX8RDPP/G+39um/M2mBjI5gAAAABJRU5ErkJggg==</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <Language>en-US</Language>
-  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>14105f7a-a3f9-4b00-a948-92a6b140f32d</rd:ReportID>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>b4fb2c06-7759-443c-b029-a70edff45ed4</rd:ReportID>
 </Report>

@@ -55,16 +55,17 @@
     <Report Include="Foundational Courses Completed.rdl" />
     <Report Include="MBA Existing Modules Report.rdl" />
     <Report Include="MBA ICCSB Accreditation.rdl" />
+    <Report Include="MBA Information - Average GPA of MBA Graduates.rdl" />
+    <Report Include="MBA information - Average Student Faculty ratio of each program.rdl" />
+    <Report Include="MBA Information - Number of ICCSB Accredited MBA Programs.rdl" />
+    <Report Include="MBA Information - Total Enrolled Graduates over last 10 Years.rdl" />
+    <Report Include="MBA Information - Total Graduates in Managerial Position.rdl" />
+    <Report Include="MBA Information - Total Number of Graduates over last 10 Years.rdl" />
     <Report Include="MBA Management Positions.rdl" />
-    <Report Include="MBAQualityIndicator-CEO_List.rdl" />
-    <Report Include="MBAQualityIndicator-GPAHigherThan50.rdl" />
-    <Report Include="MBAQualityIndicator-GraduatesEarning60KPlus.rdl" />
-    <Report Include="MBAQualityIndicator-TotalNoofGraduatesLast3Years.rdl" />
-    <Report Include="MBA_Information-AverageGPAofMBAGraduates.rdl" />
-    <Report Include="MBA_Information-NumberofICCSBAccreditedMBAPrograms.rdl" />
-    <Report Include="MBA_Information-TotalEnrolledGraduatesOverLast10Years.rdl" />
-    <Report Include="MBA_Information-TotalGraduatesinManagerialPosition.rdl" />
-    <Report Include="MBA_Information-TotalGraduatesOverLast10Years.rdl" />
+    <Report Include="MBA Quality Indicator - GPA Higher than 50.rdl" />
+    <Report Include="MBA Quality Indicator - Graduates Earning 60K Plus.rdl" />
+    <Report Include="MBA Quality Indicator - Graduates who are CEOs.rdl" />
+    <Report Include="MBA Quality Indicator - Total No. of Graduates Last 3 Years.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
