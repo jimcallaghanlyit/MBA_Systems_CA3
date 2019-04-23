@@ -8,6 +8,11 @@
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>41ad3fb6-c9d9-49a5-b376-8d6d0c7a07ec</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="AzureDB">
+      <DataSourceReference>AzureDB</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>f3c09971-af6f-430c-87a4-39ecee5e481c</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="AverageGPA">

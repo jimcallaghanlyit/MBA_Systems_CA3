@@ -8,6 +8,11 @@
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>ae8420e7-5c43-453f-b7f9-73921e4b1610</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="AzureDB">
+      <DataSourceReference>AzureDB</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>3a43f3d8-7ee1-454f-8889-d56d33d0010e</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="TotalEnrolledGraduatesOverLast10Years">

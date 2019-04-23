@@ -8,6 +8,11 @@
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>929b0cce-2ebb-46d8-ab23-f7c3791dcc9b</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>AzureDB</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>83db126f-c132-4952-b950-6ba68b597830</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="FoundationalCoursesCompleted">

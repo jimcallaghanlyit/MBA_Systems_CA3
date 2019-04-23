@@ -8,6 +8,11 @@
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>5a559cf9-7013-46e6-bb1f-a115dec7c61e</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="AzureDB">
+      <DataSourceReference>AzureDB</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>cc7dc49a-2b6d-44ae-94c9-88086fff804b</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="MBAICCSBAccreditation">

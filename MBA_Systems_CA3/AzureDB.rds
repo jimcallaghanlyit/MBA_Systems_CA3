@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="AzureDB">
+  <ConnectionProperties>
+    <Extension>SQLAZURE</Extension>
+    <ConnectString>Data Source=mbasystemca3-svr.database.windows.net;Initial Catalog=MBASystemCA3-DB1;Encrypt=True;TrustServerCertificate=False</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>d8f3e37d-15c9-4dec-bfee-4a3348098125</DataSourceID>
+</RptDataSource>
